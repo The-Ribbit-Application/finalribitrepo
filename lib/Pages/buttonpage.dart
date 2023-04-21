@@ -1,3 +1,4 @@
+import 'package:finalribitrepo/Pages/timer_page.dart';
 import 'package:finalribitrepo/Pages/timerpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class buttonpage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const timerpage()),
+                    MaterialPageRoute(builder: (context) => PomodoroTimer()),
                   );
                 },
               ),

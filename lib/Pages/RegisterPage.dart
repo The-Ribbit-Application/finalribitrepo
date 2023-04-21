@@ -1,25 +1,27 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:finalribitrepo/UI Components/SquareTile.dart';
 
 import '../UI Components/Textfield.dart';
 import '../UI Components/button.dart';
+class RegisterPage extends StatefulWidget {
+  final VoidCallback showLoginPage;
+  const RegisterPage({Key? key
+    ,
+    required this.showLoginPage}) : super(key: key);
 
-class LoginPage extends StatelessWidget {
-  final VoidCallback  showRegisterPage;
-  LoginPage({super.key, required this.showRegisterPage});
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
 
   //text editing controllers
   final EmailController = TextEditingController();
   final passwordController = TextEditingController();
 
-//SignUserIn method
-  Future signUserIn() async{
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: EmailController.text.trim(),
-        password: passwordController.text.trim()
-    ).catchError((error) => print(error));
+  Future signUserUp() async{
   }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +46,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 50),
                 //Welcome text
                 const Text(
-                  'Log-In',
+                  'Register Below with your details!',
                   style: TextStyle(
                       color: Color(0xFF447604),
                       fontSize: 64,
@@ -81,7 +83,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
                 button(
-                  onTap: signUserIn,
+                  onTap: signUserUp,
                   buttonText: 'Sign In',
                 ),
 
@@ -92,9 +94,9 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Expanded(
                           child: Divider(
-                        thickness: 1.0,
-                        color: Colors.grey[400],
-                      )),
+                            thickness: 1.0,
+                            color: Colors.grey[400],
+                          )),
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
@@ -104,40 +106,27 @@ class LoginPage extends StatelessWidget {
                       ),
                       Expanded(
                           child: Divider(
-                        thickness: 1.0,
-                        color: Colors.grey[400],
-                      ))
+                            thickness: 1.0,
+                            color: Colors.grey[400],
+                          ))
                     ],
                   ),
                 ),
                 //google sign in + apple sign in
                 const SizedBox(height: 50),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    //google button
-                    SquareTile(
-                        imagePath: "lib/Images/google logo.png", imageHeight: 60),
-                    SizedBox(width: 50),
-
-                    //apple button
-                    SquareTile(
-                        imagePath: "lib/Images/apple logo.png", imageHeight: 60),
-                  ],
-                ),
 
                 //Don't have an account? Register Now
                 const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account?"),
+                    const Text("Already Have an Account?"),
                     const SizedBox(width: 4),
                     GestureDetector(
-                      onTap: showRegisterPage,
+                      onTap: widget.showLoginPage,
                       child: const Text(
-                        "Sign up now!",
+                        "Sign in",
                         style: TextStyle(
                             color: Color(0xFF447604), fontWeight: FontWeight.bold),
                       ),
@@ -152,4 +141,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
