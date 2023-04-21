@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:finalribitrepo/UI Components/SquareTile.dart';
 
@@ -9,12 +10,16 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
   //text editing controllers
-  final usernameController = TextEditingController();
+  final EmailController = TextEditingController();
   final passwordController = TextEditingController();
 
 //SignUserIn method
-  void signUserIn() {}
-
+  Future signUserIn() async{
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: EmailController.text.trim(),
+        password: passwordController.text.trim()
+    ).catchError((error) => print(error));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +52,7 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 25),
               //username text-field
               Textfield(
-                controller: usernameController,
+                controller: EmailController,
                 hintText: "Username",
                 obscureText: false,
               ),
@@ -75,12 +80,8 @@ class LoginPage extends StatelessWidget {
               ),
               const SizedBox(height: 25),
               button(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const buttonpage()),
-                  );
-                },
+                onTap: signUserIn,
+                buttonText: 'Sign In',
               ),
 
               const SizedBox(height: 50),

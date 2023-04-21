@@ -1,4 +1,5 @@
 import 'package:finalribitrepo/Pages/timerpage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../UI Components/goback.dart';
@@ -51,9 +52,12 @@ class buttonpage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
               ),
               const SizedBox(height: 25),
+
+
+
               goback(
                 onTap: () {
-                  Navigator.pop(context);
+                  FirebaseAuth.instance.signOut();
                 },
               ),
             ],
