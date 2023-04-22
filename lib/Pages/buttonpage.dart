@@ -1,3 +1,4 @@
+import 'package:finalribitrepo/Pages/subjects_page.dart';
 import 'package:finalribitrepo/Pages/timer_page.dart';
 import 'package:finalribitrepo/Pages/timerpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -42,6 +43,15 @@ class buttonpage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => PomodoroTimer()),
+                  );
+                },
+              ),
+              const SizedBox(height: 25),
+              timerbutton(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SubjectsPage()),
                   );
                 },
               ),
