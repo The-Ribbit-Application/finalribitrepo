@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../UI Components/goback.dart';
+import '../UI Components/subjectsbutton.dart';
 import '../UI Components/timerbutton.dart';
 import '../UI Components/todobutton.dart';
 import 'home.dart';
@@ -47,7 +48,7 @@ class buttonpage extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 25),
-              timerbutton(
+              subjectsbutton(
                 onTap: () {
                   Navigator.push(
                     context,
