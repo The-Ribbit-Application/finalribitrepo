@@ -18,7 +18,7 @@ class goback extends StatelessWidget {
         ),
         child: const Center(
           child: Text(
-            "Go back <-",
+            "Sign Out",
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,

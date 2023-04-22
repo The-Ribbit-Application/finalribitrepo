@@ -7,8 +7,11 @@ import '../UI Components/goback.dart';
 import '../UI Components/timerbutton.dart';
 import '../UI Components/todobutton.dart';
 import 'home.dart';
+
 class buttonpage extends StatelessWidget {
   const buttonpage({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,10 @@ class buttonpage extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 200),
+              const SizedBox(height: 45),
+              //logo goes here
+              Image.asset('lib/Images/frog.png', height: 300),
+              const SizedBox(height: 100),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
               ),

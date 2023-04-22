@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../UI Components/goback.dart';
+import 'buttonpage.dart';
 class timerpage extends StatelessWidget {
   const timerpage({super.key});
 
@@ -16,7 +17,10 @@ class timerpage extends StatelessWidget {
               const SizedBox(height: 25),
               goback(
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => buttonpage()),
+                  );
                 },
               ),
             ],
